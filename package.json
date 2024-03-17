@@ -1,0 +1,52 @@
+{
+  "name": "yugioh-tcg-cards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-dev": "webpack serve --open --progress --config webpack.config.dev.js",
+    "build-prod": "webpack --progress --config webpack.config.prod.js"
+  },
+  "keywords": [
+    "ReactJS",
+    "templates",
+    "quick start",
+    "react template"
+  ],
+  "repository": "https://github.com/Berns-C/my-react-custom-quickstart",
+  "author": "Bernhard Paolo Cena",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/css": "^0.0.37",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@types/react-redux": "^7.1.33",
+    "@types/webpack": "^5.28.5",
+    "autoprefixer": "^10.4.17",
+    "css-loader": "^6.10.0",
+    "css-minimizer-webpack-plugin": "^6.0.0",
+    "dotenv": "^16.4.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "postcss": "^8.4.35",
+    "style-loader": "^3.3.4",
+    "tailwindcss": "^3.4.1",
+    "terser-webpack-plugin": "^5.3.10",
+    "thread-loader": "^4.0.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
+    "axios": "^1.6.7",
+    "follow-redirects": "^1.15.6",
+    "postcss-loader": "^8.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.1"
+  }
+}
