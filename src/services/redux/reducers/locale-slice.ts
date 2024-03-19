@@ -7,6 +7,24 @@ export interface ILocaleReducer {
     archetype: string;
     cards: string;
   };
+  header: {
+    text: string;
+  };
+  home: {
+    introduction: {
+      header: string;
+      text: string;
+      btnText: string;
+    };
+    about: {
+      header: string;
+      text: string;
+      disclaimer: {
+        header: string;
+        text: string;
+      };
+    };
+  };
 }
 
 export const Locale = createSlice({
@@ -19,4 +37,12 @@ export const Locale = createSlice({
 
 export const getLocaleNavigationTexts = (state) => {
   return state?.locale_store?.navigations;
+};
+
+export const getLocaleHeaderTexts = (state) => {
+  return state?.locale_store?.header;
+};
+
+export const getLocaleHomeTexts = (state) => {
+  return state?.locale_store?.home;
 };

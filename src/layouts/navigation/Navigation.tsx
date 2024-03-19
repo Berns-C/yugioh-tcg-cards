@@ -25,7 +25,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="w-full h-8 relative bg-black paddin p-2 grid grid-cols-2 sm:h-14">
+      <nav className="w-full h-10 relative md:fixed md:z-50 md:top-0 bg-black paddin p-2 grid grid-cols-2 sm:h-14">
         <img
           className="col-start-1 col-end-1 cursor-pointer w-[100px] h-[25px] lg:w-[140px] lg:h-[40px] sm:my-auto sm:ml-1.5"
           src={yugioh_logo}
@@ -41,7 +41,7 @@ const Navigation = () => {
             <NavList text1={home} text2={archetype} text3={cards} />
           )}
         </div>
-      </div>
+      </nav>
       {showNav && <DrawerNav text1={home} text2={archetype} text3={cards} />}
     </>
   );

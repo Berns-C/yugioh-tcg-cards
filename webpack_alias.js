@@ -5,6 +5,7 @@ module.exports = {
   '@Components': path.resolve(__dirname, 'src/components/'),
   '@Contexts': path.resolve(__dirname, 'src/contexts/'),
   '@Data': path.resolve(__dirname, 'src/data/'),
+  '@Helper': path.resolve(__dirname, 'src/helper/'),
   '@Hooks': path.resolve(__dirname, 'src/hooks/'),
   '@Layouts': path.resolve(__dirname, 'src/layouts/'),
   '@Library': path.resolve(__dirname, 'src/lib/'),

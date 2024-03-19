@@ -1,7 +1,5 @@
 /* Constant variables here. */
 
-export const demoApiUrl = `${process.env.TEST}`;
-
 export const SM_BREAKPOINT = 640;
 export const MD_BREAKPOINT = 768;
 export const LG_BREAKPOINT = 1024;

@@ -18,6 +18,7 @@
       "@Components/*": ["./components/*"],
       "@Contexts/*": ["./contexts/*"],
       "@Data/*": ["./data/*"],
+      "@Helper/*": ["./helper/*"],
       "@Hooks/*": ["./hooks/*"],
       "@Layouts/*": ["./layouts/*"],
       "@Library/*": ["./lib/*"],

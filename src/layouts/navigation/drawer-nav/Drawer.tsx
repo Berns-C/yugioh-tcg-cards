@@ -3,7 +3,7 @@ import React from 'react';
 const DrawerNav = ({ handleOnClick }) => {
   return (
     <span
-      className="h-8 space-y-1 absolute right-2 cursor-pointer sm:top-2"
+      className="h-8 space-y-1 absolute right-2 cursor-pointer sm:top-2 li-animation"
       onClick={() => {
         handleOnClick();
       }}

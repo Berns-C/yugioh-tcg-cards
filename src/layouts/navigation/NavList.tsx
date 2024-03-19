@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavList = ({ text1, text2, text3 }) => {
   const liStyle =
-    "inline-block p-2 font-['Roboto-light'] hover:font-['Roboto-bold']";
+    "inline-block p-2 font-['Roboto-light'] hover:font-['Roboto-bold'] cursor-pointer";
   const spanStyle = 'block h-6 m-auto px-1';
   const textStyle =
     'text-xs block uppercase text-center text-white li-animation leading-6 lg:text-sm lg:leading-7';
