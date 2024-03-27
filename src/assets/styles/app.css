@@ -38,7 +38,7 @@ body {
   right: 0px;
   opacity: 1;
   animation-name: show-from-right;
-  animation-duration: 0.7s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in;
 }
 
@@ -51,7 +51,7 @@ body {
   }
 }
 
-.li-animation {
+.nav-drawer-animation {
   opacity: 1;
   transition: transform 0.2s;
   animation-name: slow-appear;
@@ -68,7 +68,7 @@ body {
   }
 }
 
-.li-animation:hover {
+.nav-drawer-animation:hover {
   transform: scale(1.5);
 }
 

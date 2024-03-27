@@ -6,11 +6,11 @@ import {
   getLocaleHeaderTexts,
   getLocaleHomeTexts,
 } from '@Redux/reducers/locale-slice';
-import { MD_BREAKPOINT } from '@Data/constants';
+import { LG_BREAKPOINT } from '@Data/constants';
 import ImageField from '@Components/image/ImageField';
 import ParagraphHeader from '@Components/texts/ParagraphHeader';
 import Paragraph from '@Components/texts/Paragraph';
-import CustomButton from '@Components/buttons/CustomButton';
+import CustomButton from '@Components/buttons/Button';
 
 import bgImg from '@Assets/images/1163358-min.jpg';
 import bgImg2 from '@Assets/images/1313032.jpg';
@@ -22,16 +22,16 @@ import mobileBgImg3 from '@Assets/images/2347656_cardcropped.jpg';
 
 const Home = () => {
   const { pageWidth, pageHeight } = useContext<IDeviceContext>(DeviceContext);
-  const { text } = useSelector(getLocaleHeaderTexts);
+  const { text_1, text_2 } = useSelector(getLocaleHeaderTexts);
   const { introduction, about } = useSelector(getLocaleHomeTexts);
 
   return (
     <main className="">
       <div
-        className="card-background relative w-full h-96 md:mt-[56px]"
+        className="card-background relative w-full h-screen lg:m-h-[700px]"
         style={{
           backgroundImage: `url(${
-            pageWidth && pageWidth < MD_BREAKPOINT ? mobileBgImg : bgImg
+            pageWidth && pageWidth < LG_BREAKPOINT ? mobileBgImg : bgImg
           })`,
         }}
       >
@@ -39,36 +39,48 @@ const Home = () => {
           className="w-full h-full p-4 md:p-10"
           style={{ backgroundColor: 'rgba(63, 67, 74, 0.3)' }}
         >
-          <h1
-            className="fade-in-text w-44 sm:w-1/2 lg:w-[837px] font-['Open-Sans'] text-white text-center text-lg lg:text-xl block absolute top-1/2 left-1/2 font-bold italic p-4"
+          <div
+            className="absolute top-1/3 left-1/2"
             style={{
               backgroundColor: 'rgba(0, 0, 0, 0.3)',
               transform: 'translate(-50%, -50%)',
             }}
           >
-            {text}
-          </h1>
+            <h5 className="fade-in-text font-['Open-Sans'] text-white text-center text-lg lg:text-xl italic p-4">
+              {text_1}
+            </h5>
+            <h1 className="fade-in-text font-['Open-Sans'] text-white text-center text-lg lg:text-xl italic p-4 font-bold">
+              {text_2}
+            </h1>
+          </div>
+
+          <div className="w-[calc(100%-16px)] md:w-[calc(100%-40px)] absolute bottom-12">
+            <CardAnimation
+              btnText={introduction?.btnText}
+              pageWidth={pageWidth}
+            />
+          </div>
         </div>
       </div>
+      <div className="w-full h-fit border-t-4 border-[#A10035] bg-[#F7F7F7]">
+        <ImageField
+          pageWidth={pageWidth}
+          image={bgImg2}
+          mobileImage={mobileBgImg2}
+          bgColor={'rgba(100, 204, 197, 0.5)'}
+        />
+      </div>
+
       <div className="w-full h-fit p-4 md:p-10 border-t-4 border-[#A10035] bg-[#F7F7F7]">
         <ParagraphHeader text={introduction?.header} />
         <Paragraph text={introduction?.text} />
       </div>
-      <ImageField
-        pageWidth={pageWidth}
-        image={bgImg2}
-        mobileImage={mobileBgImg2}
-        bgColor={'rgba(100, 204, 197, 0.5)'}
-        borderColor={'#64DFDF'}
-      />
 
-      <CardAnimation btnText={introduction?.btnText} pageWidth={pageWidth} />
       <ImageField
         pageWidth={pageWidth}
         image={bgImg2}
         mobileImage={mobileBgImg2}
         bgColor={'rgba(100, 204, 197, 0.5)'}
-        borderColor={'#64DFDF'}
       />
 
       <div className="w-full p-4 md:p-10 border-t-4 border-[#3FA796] bg-[#F7F7F7]">
@@ -80,7 +92,6 @@ const Home = () => {
         image={bgImg3}
         mobileImage={mobileBgImg3}
         bgColor={'rgba(161, 204, 209, 0.5)'}
-        borderColor={'#A1CCD1'}
       />
       <div className="w-full p-4 md:p-10 border-t-4  border-[#2A0944]">
         <ParagraphHeader text={about?.header} bgColor="#2A0944" />
@@ -91,7 +102,6 @@ const Home = () => {
         image={bgImg3}
         mobileImage={mobileBgImg3}
         bgColor={'rgba(161, 204, 209, 0.5)'}
-        borderColor={'#A1CCD1'}
       />
       <div className="w-full p-4 md:p-10 border-t-4  border-[#2A0944]">
         <h5>For More Details About the</h5>

@@ -8,7 +8,8 @@ export interface ILocaleReducer {
     cards: string;
   };
   header: {
-    text: string;
+    text_1: string;
+    text_2: string;
   };
   home: {
     introduction: {
