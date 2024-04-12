@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
-require('dotenv').config({ path: './.env' });
+const env = require('./env');
 
 module.exports = merge(common, {
   mode: 'production',

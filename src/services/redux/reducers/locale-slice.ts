@@ -44,10 +44,6 @@ export const getLocaleNavigationTexts = (state) => {
   return state?.locale_store?.navigations;
 };
 
-export const getLocaleHeaderTexts = (state) => {
-  return state?.locale_store?.header;
-};
-
 export const getLocaleHomeTexts = (state) => {
-  return state?.locale_store?.home;
+  return { ...state?.locale_store?.home, ...state?.locale_store?.header };
 };

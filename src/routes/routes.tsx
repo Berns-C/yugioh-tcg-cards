@@ -21,7 +21,7 @@ const Routes = () => {
           index: true,
         },
         {
-          path: '/archetype',
+          path: '/archetypes',
           element: <Archetypes />,
         },
       ],

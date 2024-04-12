@@ -1,32 +1,39 @@
-import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useContext, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { DeviceContext, IDeviceContext } from '@Contexts/app_contexts/Device';
 import CardAnimation from './animation/CardAnimation';
-import {
-  getLocaleHeaderTexts,
-  getLocaleHomeTexts,
-} from '@Redux/reducers/locale-slice';
-import { MD_BREAKPOINT, LG_BREAKPOINT } from '@Data/constants';
-import CustomButton from '@Components/buttons/Button';
+import { getLocaleHomeTexts } from '@Redux/reducers/locale-slice';
+import { LG_BREAKPOINT } from '@Data/constants';
 import ArchetypeCard from '@Components/image/ArchetypeCard';
-
 import bgImg from '@Assets/images/1163358-min.jpg';
-import bgImg2 from '@Assets/images/1313032.jpg';
-import bgImg3 from '@Assets/images/1046470.png';
-
 import mobileBgImg from '@Assets/images/33925864_cardcropped.jpg';
-import mobileBgImg2 from '@Assets/images/3611830_cardcropped.jpg';
-import mobileBgImg3 from '@Assets/images/2347656_cardcropped.jpg';
+import {
+  getArchetypes,
+  getFetchStatus,
+  getArchetypeState,
+} from '@Redux/reducers/archetypes-slice';
+import { AppDispatch } from '@Redux/redux-store';
 
 const Home = () => {
-  const { pageWidth, pageHeight } = useContext<IDeviceContext>(DeviceContext);
-  const { text_1, text_2 } = useSelector(getLocaleHeaderTexts);
-  const { introduction, about, link } = useSelector(getLocaleHomeTexts);
+  const dispatch = useDispatch<AppDispatch>();
+  const { pageWidth } = useContext<IDeviceContext>(DeviceContext);
+  const { text_1, text_2, introduction, about, link } =
+    useSelector(getLocaleHomeTexts);
+  const archetypeStatus = useSelector(getFetchStatus);
+  const archetypes = useSelector(getArchetypeState);
+
+  useSelector((state) => {
+    console.log('Home state ', state);
+  });
+
+  useEffect(() => {
+    dispatch(getArchetypes({}));
+  }, []);
 
   return (
     <main className="">
       <section
-        className="card-background relative w-full h-screen sm:h-[850px]"
+        className="card-background relative w-full h-screen sm:h-[650px]"
         style={{
           backgroundImage: `url(${
             pageWidth && pageWidth < LG_BREAKPOINT ? mobileBgImg : bgImg
@@ -129,16 +136,39 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full relative">
-        <div className="w-full lg:w-[1080px] m-auto">
-          <ArchetypeCard />
-          <ArchetypeCard />
-          <ArchetypeCard />
-        </div>
-        <h5 className="my-8 lg:text-lg text-center uppercase cursor-pointer">
-          {link?.link_text}
-        </h5>
-      </section>
+      {archetypes.length > 0 && (
+        <section className="w-full relative">
+          <div className="w-full lg:w-[1080px] m-auto">
+            <ArchetypeCard
+              imgName={archetypes[0]?.coverImg}
+              label={archetypes[0]?.name}
+              text={link?.link_text_2}
+            />
+            <ArchetypeCard
+              imgName={archetypes[1]?.coverImg}
+              label={archetypes[1]?.name}
+              text={link?.link_text_2}
+            />
+            <ArchetypeCard
+              imgName={archetypes[2]?.coverImg}
+              label={archetypes[2]?.name}
+              text={link?.link_text_2}
+            />
+          </div>
+          <button
+            className="
+              block
+              mt-8
+              mx-auto
+              lg:text-lg
+              text-center
+              uppercase
+              cursor-pointer"
+          >
+            {link?.link_text}
+          </button>
+        </section>
+      )}
 
       <section className="w-full relative">
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">

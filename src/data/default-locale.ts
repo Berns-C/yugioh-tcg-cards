@@ -19,6 +19,7 @@ export const default_locale = {
     },
     link: {
       link_text: 'View all archetypes here',
+      link_text_2: 'View archetype collection',
     },
     about: {
       header: 'ABOUT',

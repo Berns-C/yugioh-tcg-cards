@@ -1,14 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { Locale, ILocaleReducer } from './reducers/locale-slice';
+import rootReducer from './reducers/root-reducers';
 
-export interface IStore {
-  locale_store: ILocaleReducer;
-}
-
-export const store = configureStore<IStore>({
-  reducer: {
-    locale_store: Locale.reducer,
-  },
+export const store = configureStore({
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware();
   },

@@ -1,10 +1,9 @@
 import React from 'react';
-import mobileBgImg2 from '@Assets/images/3611830_cardcropped.jpg';
 import '@Assets/styles/card.css';
 
-const ArchetypeCard = () => {
+const ArchetypeCard = ({ imgName, label, text }) => {
   return (
-    <div className="block lg:inline-block">
+    <div className="block lg:inline-block cursor-pointer">
       <div
         className="
         card
@@ -17,37 +16,39 @@ const ArchetypeCard = () => {
         mx-auto
         lg:mx-7
         my-9
-        lg:my-7"
+        lg:my-7
+        rounded-[18px]"
       >
         <div
           className="card-image"
           style={{
-            backgroundImage: `url(${mobileBgImg2})`,
+            backgroundImage: `url(${require(`@Assets/images/card_images/${imgName}_cardcropped.jpg`)})`,
           }}
         ></div>
-        <div className="card-text">
-          <span className="date">4 days ago</span>
-          <h2>Post One</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae
-            temporibus omnis illum maxime quod deserunt eligendi dolor
-          </p>
+        <div className="card-image card-overlay">
+          <span
+            className="
+              w-[90px]
+              mt-[100px]
+              mx-auto
+              block
+              relative
+              text-white
+              uppercase"
+          >
+            {text}
+          </span>
         </div>
-        <div className="card-stats">
-          <div className="stat">
-            <div className="value">
-              4<sup>m</sup>
-            </div>
-            <div className="type">read</div>
-          </div>
-          <div className="stat border">
-            <div className="value">5123</div>
-            <div className="type">views</div>
-          </div>
-          <div className="stat">
-            <div className="value">32</div>
-            <div className="type">comments</div>
-          </div>
+        <div
+          className="
+            card-stats
+            text-white
+            p-6
+            uppercase
+            font-bold
+            lg:text-2xl"
+        >
+          {label}
         </div>
       </div>
     </div>
