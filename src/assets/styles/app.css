@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-width: 240px;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: Roboto-light;
+  src: url('../fonts//Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: Roboto-bold;
+  src: url('../fonts//Roboto-Medium.ttf');
+}
+
+@font-face {
+  font-family: Roboto-slab;
+  src: url('../fonts/RobotoSlab.ttf');
+}
+
+@font-face {
+  font-family: Open-Sans;
+  src: url('../fonts/OpenSans.ttf');
+}
+
+.nav-list-ul {
+  opacity: 1;
+  animation-name: slow-appear;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in;
+}
+
+.ul-animation {
+  right: 0px;
+  opacity: 1;
+  animation-name: show-from-right;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes show-from-right {
+  from {
+    right: -90vw;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+.nav-drawer-animation {
+  opacity: 1;
+  transition: transform 0.2s;
+  animation-name: slow-appear;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes slow-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-drawer-animation:hover {
+  transform: scale(1.5);
+}
+
+.card-background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.fade-in-text {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
