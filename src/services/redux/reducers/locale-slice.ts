@@ -13,9 +13,13 @@ export interface ILocaleReducer {
   };
   home: {
     introduction: {
-      header: string;
+      header_1: string;
+      header_2: string;
       text: string;
       btnText: string;
+    };
+    link: {
+      link_text: string;
     };
     about: {
       header: string;

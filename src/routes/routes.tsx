@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import DefaultLayout from '@Layouts/DefaultLayout';
 import Home from '@Pages/home/Home';
+import Archetypes from '@Pages/Archetypes/Archetypes';
 
 const Routes = () => {
   console.log('path ', window.location.pathname);
@@ -18,6 +19,10 @@ const Routes = () => {
           path: '/',
           element: <Home />,
           index: true,
+        },
+        {
+          path: '/archetype',
+          element: <Archetypes />,
         },
       ],
     },
