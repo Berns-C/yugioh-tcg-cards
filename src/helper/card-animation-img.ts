@@ -17,9 +17,6 @@ export const getCardImages = (imgList, startIndex) => {
     }
   }
 
-  if (newImgArr.length < maxArr) {
-  }
-
   return {
     startIndex: startIndex > imgListSize - 1 ? 0 : startIndex + 1,
     imgs: newImgArr,

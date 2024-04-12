@@ -11,7 +11,7 @@ const Archetypes = () => {
   useSelector((state) => {
     console.log('state ', state);
   });
-  return 'Archetype';
+  return <main className="">TESTING</main>;
 };
 
 export default Archetypes;

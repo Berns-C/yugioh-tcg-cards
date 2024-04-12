@@ -94,16 +94,16 @@ const Home = () => {
       </section>
       <h1
         className="
-            fade-in-text
-            bg-black
-            uppercase
-            font-bold
-            font-['Roboto-slab']
-          text-white
-            text-center
-            text-sm
-            lg:text-xl
-            p-4"
+          fade-in-text
+        bg-black
+          uppercase
+          font-bold
+          font-['Roboto-slab']
+        text-white
+          text-center
+          text-sm
+          lg:text-xl
+          p-4"
       >
         {introduction?.header_2}
       </h1>
@@ -111,14 +111,14 @@ const Home = () => {
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
           <h1
             className="
-            fade-in-text
-            uppercase
-            font-bold
-            font-['Roboto-slab']
-            text-center
-            text-sm
-            lg:text-xl
-            p-4"
+              fade-in-text
+              uppercase
+              font-bold
+              font-['Roboto-slab']
+              text-center
+              text-sm
+              lg:text-xl
+              p-4"
           >
             {introduction?.header_1}
           </h1>
@@ -174,14 +174,14 @@ const Home = () => {
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
           <h1
             className="
-            fade-in-text
-            uppercase
-            font-bold
-            font-['Roboto-slab']
-            text-center
-            text-sm
-            lg:text-xl
-            p-4"
+              fade-in-text
+              uppercase
+              font-bold
+              font-['Roboto-slab']
+              text-center
+              text-sm
+              lg:text-xl
+              p-4"
           >
             {about?.header}
           </h1>
@@ -203,14 +203,14 @@ const Home = () => {
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
           <h1
             className="
-            fade-in-text
-            uppercase
-            font-bold
-            font-['Roboto-slab']
-            text-center
-            text-sm
-            lg:text-xl
-            p-4"
+              fade-in-text
+              uppercase
+              font-bold
+              font-['Roboto-slab']
+              text-center
+              text-sm
+              lg:text-xl
+              p-4"
           >
             {about?.disclaimer?.header}
           </h1>
@@ -221,7 +221,7 @@ const Home = () => {
               sm:text-base
               lg:text-lg
               text-center
-               p-4"
+              p-4"
           >
             {about?.disclaimer?.text}
           </p>

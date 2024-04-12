@@ -1,68 +1,45 @@
 import React from 'react';
-import { INavigation } from '@Interface/navigation';
+import { Link } from 'react-router-dom';
 
-const NavigationList = ({ item_1, item_2, item_3 }: INavigation) => {
-  const renderList = ({ text, handleOnClick }, index) => {
+const NavigationList = ({ itemList }) => {
+  const renderList = ({ label, route }, index) => {
     return (
-      <li
-        key={`nav-list-${index}`}
-        className="
-          inline-block
-          p-2
-          font-['Roboto-light']
-          hover:font-['Roboto-bold']"
-      >
-        <span
-          className="block h-6 m-auto px-1 w-[70px] lg:w-24"
-          onClick={handleOnClick}
+      <Link to={route} key={`nav-list-${index}`}>
+        <li
+          className="
+            inline-block
+            p-2
+            font-['Roboto-light']
+            hover:font-['Roboto-bold']"
         >
-          <span
-            className="
-            block
-            uppercase
-            text-center
-            text-white
-            text-xs
-            lg:text-sm
-            leading-6
-            lg:leading-7
-            cursor-pointer
-            nav-drawer-animation"
-          >
-            {text}
+          <span className="block h-6 m-auto px-1 w-[70px] lg:w-24">
+            <span
+              className="
+                block
+                uppercase
+                text-center
+                text-white
+                text-xs
+                lg:text-sm
+                leading-6
+                lg:leading-7
+                cursor-pointer
+                nav-drawer-animation"
+            >
+              {label}
+            </span>
           </span>
-        </span>
-      </li>
+        </li>
+      </Link>
     );
   };
 
   return (
     <ul
       key={'nav-list'}
-      className=" h-fit md:w-fit md:absolute md:right-0 nav-list-ul "
+      className="h-fit md:w-fit md:absolute md:right-0 nav-list-ul"
     >
-      {[
-        {
-          text: item_1?.label,
-          handleOnClick: () => {
-            item_1?.handleRoute();
-          },
-        },
-        {
-          text: item_2?.label,
-          handleOnClick: () => {
-            item_2?.handleRoute();
-          },
-        },
-        {
-          text: item_3?.label,
-          handleOnClick: () => {
-            item_3?.handleRoute();
-          },
-        },
-      ].map((item, index) => {
-        return renderList(item, index);
-      })}
+      {itemList.map((item, index) => renderList(item, index))}
     </ul>
   );
 };

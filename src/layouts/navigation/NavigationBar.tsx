@@ -24,23 +24,17 @@ const NavigationBar = () => {
     {
       label: home,
       icon: home_icon,
-      handleRoute: () => {
-        console.log('Home Route');
-      },
+      route: '/',
     },
     {
       label: archetype,
       icon: archetype_icon,
-      handleRoute: () => {
-        console.log('Archetype Route');
-      },
+      route: '/archetypes',
     },
     {
       label: cards,
       icon: cards_icon,
-      handleRoute: () => {
-        console.log('Cards Route');
-      },
+      route: '/cards',
     },
   ];
 
@@ -74,9 +68,6 @@ const NavigationBar = () => {
             sm:my-auto
             sm:ml-1.5"
           src={yugioh_logo}
-          onClick={() => {
-            navigationList[0]?.handleRoute();
-          }}
         />
         <div className="relative col-start-2 col-end-2">
           {pageWidth && pageWidth < MD_BREAKPOINT ? (
@@ -86,21 +77,11 @@ const NavigationBar = () => {
               }}
             />
           ) : (
-            <NavigationList
-              item_1={navigationList[0]}
-              item_2={navigationList[1]}
-              item_3={navigationList[2]}
-            />
+            <NavigationList itemList={navigationList} />
           )}
         </div>
       </nav>
-      {showNav && (
-        <NavigationPanel
-          item_1={navigationList[0]}
-          item_2={navigationList[1]}
-          item_3={navigationList[2]}
-        />
-      )}
+      {showNav && <NavigationPanel itemList={navigationList} />}
     </>
   );
 };
