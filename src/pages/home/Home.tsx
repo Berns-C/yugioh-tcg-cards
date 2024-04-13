@@ -46,88 +46,29 @@ const Home = () => {
         >
           <div
             className="absolute top-1/3 left-1/2"
-            style={{
-              transform: 'translate(-50%, -50%)',
-            }}
+            style={{ transform: 'translate(-50%, -50%)' }}
           >
-            <h5
-              className="
-              fade-in-text
-              font-['Open-Sans']
-              text-white
-              text-center
-              px-4
-              text-lg
-              md:text-xl
-              italic"
-            >
+            <h5 className="fade-in-text font-['Open-Sans'] text-white text-center px-4 text-lg md:text-xl italic">
               {text_1}
             </h5>
-            <h1
-              className="
-              fade-in-text
-              font-['Open-Sans']
-              text-white
-              text-center
-              px-4
-              text-xl
-              md:text-4xl
-              font-bold"
-            >
+            <h1 className=" fade-in-text font-['Open-Sans'] text-white text-center px-4 text-xl md:text-4xl font-bold">
               {text_2}
             </h1>
           </div>
-
-          <div
-            className="
-            w-[calc(100%-16px)]
-            md:w-[calc(100%-40px)]
-            absolute
-            bottom-12"
-          >
+          <div className="w-[calc(100%-16px)] md:w-[calc(100%-40px)] absolute bottom-12">
             <CardAnimation />
           </div>
         </div>
       </section>
-      <h1
-        className="
-          fade-in-text
-        bg-black
-          uppercase
-          font-bold
-          font-['Roboto-slab']
-        text-white
-          text-center
-          text-sm
-          lg:text-xl
-          p-4"
-      >
+      <h1 className="fade-in-text bg-black uppercase font-bold font-['Roboto-slab'] text-white text-center text-sm lg:text-xl p-4">
         {introduction?.header_2}
       </h1>
       <section className="w-full relative">
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
-          <h1
-            className="
-              fade-in-text
-              uppercase
-              font-bold
-              font-['Roboto-slab']
-              text-center
-              text-sm
-              lg:text-xl
-              p-4"
-          >
+          <h1 className=" fade-in-text uppercase font-bold font-['Roboto-slab'] text-center text-sm lg:text-xl p-4">
             {introduction?.header_1}
           </h1>
-          <p
-            className="
-              fade-in-text
-              text-[14px]
-              sm:text-base
-              lg:text-lg
-              text-center
-               p-4"
-          >
+          <p className=" fade-in-text text-[14px] sm:text-base lg:text-lg text-center  p-4">
             {introduction?.text}
           </p>
         </div>
@@ -152,16 +93,7 @@ const Home = () => {
               text={link?.link_text_2}
             />
           </div>
-          <button
-            className="
-              block
-              mt-8
-              mx-auto
-              lg:text-lg
-              text-center
-              uppercase
-              cursor-pointer"
-          >
+          <button className=" block mt-8 mx-auto lg:text-lg text-center uppercase cursor-pointer">
             {link?.link_text}
           </button>
         </section>
@@ -169,28 +101,10 @@ const Home = () => {
 
       <section className="w-full relative">
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
-          <h1
-            className="
-              fade-in-text
-              uppercase
-              font-bold
-              font-['Roboto-slab']
-              text-center
-              text-sm
-              lg:text-xl
-              p-4"
-          >
+          <h1 className=" fade-in-text uppercase font-bold font-['Roboto-slab'] text-center text-sm lg:text-xl p-4">
             {about?.header}
           </h1>
-          <p
-            className="
-              fade-in-text
-              text-[14px]
-              sm:text-base
-              lg:text-lg
-              text-center
-               p-4"
-          >
+          <p className=" fade-in-text text-[14px] sm:text-base lg:text-lg text-center  p-4">
             {about?.text}
           </p>
         </div>
@@ -198,28 +112,10 @@ const Home = () => {
 
       <section className="w-full relative">
         <div className="w-56 sm:w-96 md:w-3/4 m-auto sm:p-2 md:p-10">
-          <h1
-            className="
-              fade-in-text
-              uppercase
-              font-bold
-              font-['Roboto-slab']
-              text-center
-              text-sm
-              lg:text-xl
-              p-4"
-          >
+          <h1 className=" fade-in-text uppercase font-bold font-['Roboto-slab'] text-center text-sm lg:text-xl p-4">
             {about?.disclaimer?.header}
           </h1>
-          <p
-            className="
-              fade-in-text
-              text-[14px]
-              sm:text-base
-              lg:text-lg
-              text-center
-              p-4"
-          >
+          <p className=" fade-in-text text-[14px] sm:text-base lg:text-lg text-center p-4">
             {about?.disclaimer?.text}
           </p>
         </div>

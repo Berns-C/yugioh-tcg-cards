@@ -7,7 +7,7 @@ module.exports = {
   '@Data': path.resolve(__dirname, 'src/data/'),
   '@Helper': path.resolve(__dirname, 'src/helper/'),
   '@Hooks': path.resolve(__dirname, 'src/hooks/'),
-  '@Interface': path.resolve(__dirname, 'src/interface/'),
+  '@Interfaces': path.resolve(__dirname, 'src/interfaces/'),
   '@Layouts': path.resolve(__dirname, 'src/layouts/'),
   '@Library': path.resolve(__dirname, 'src/lib/'),
   '@Pages': path.resolve(__dirname, 'src/pages/'),

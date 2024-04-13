@@ -20,7 +20,7 @@
       "@Data/*": ["./data/*"],
       "@Helper/*": ["./helper/*"],
       "@Hooks/*": ["./hooks/*"],
-      "@Interface/*": ["./interface/*"],
+      "@Interfaces/*": ["./interfaces/*"],
       "@Layouts/*": ["./layouts/*"],
       "@Library/*": ["./lib/*"],
       "@Pages/*": ["./pages/*"],

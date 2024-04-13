@@ -1,30 +1,22 @@
 import React, { useState, useRef } from 'react';
-import ShowCardAnimation from './ShowCardAnimation';
+import RevelCardsAnimation from './RevelCardsAnimation';
 import FlipCard from './FlipCard';
 import cardBack from '@Assets/images/card_back.jpg';
 import { ANIMATION_IMAGES_ARRAY } from '@Data/animation_images';
 import { getCardImages } from '@Helper/card-animation-img';
-
-interface iImageTracker {
-  nextIndex: number;
-  imgs: string[];
-}
+import { ImageTracker } from '@Interfaces/index';
 
 const CardAnimation = () => {
-  const imgTracker = useRef<iImageTracker>({
+  const imgTracker = useRef<ImageTracker>({
     nextIndex: 1,
-    imgs: [
-      ANIMATION_IMAGES_ARRAY[0],
-      ANIMATION_IMAGES_ARRAY[1],
-      ANIMATION_IMAGES_ARRAY[2],
-      ANIMATION_IMAGES_ARRAY[3],
-      ANIMATION_IMAGES_ARRAY[4],
-    ],
+    imgs: ANIMATION_IMAGES_ARRAY,
   });
 
-  const [showAnim1, setShowAnim1] = useState(true);
-  const [showAnim2, setShowAnim2] = useState(false);
-  const [showAnime3, setShowAnim3] = useState(false);
+  const [display, setDisplay] = useState({
+    animation1: true,
+    animation2: false,
+    animation3: false,
+  });
 
   const adjustImages = () => {
     imgTracker.current = getCardImages(
@@ -33,49 +25,43 @@ const CardAnimation = () => {
     );
   };
 
+  const showAnimation = ({
+    animation1 = false,
+    animation2 = false,
+    animation3 = false,
+  }) => {
+    if (animation1) {
+      adjustImages();
+    }
+    setDisplay({ animation1, animation2, animation3 });
+  };
+
   return (
     <div className="card-background relative w-full ">
       <div className="w-[145px] h-[210px] sm:w-[160px] sm:h-[236px] my-8 mx-auto">
-        {showAnim1 && (
-          <FlipCard
-            frontCard={cardBack}
-            backCard={imgTracker.current?.imgs[0]}
-            showAnimation={showAnim1}
-            animationDelay={1800}
-            callback={() => {
-              setShowAnim1(false);
-              setShowAnim2(true);
-            }}
-          />
-        )}
-        {showAnim2 && (
-          <ShowCardAnimation
-            card1={imgTracker.current?.imgs[0]}
-            card2={imgTracker.current?.imgs[1]}
-            card3={imgTracker.current?.imgs[2]}
-            card4={imgTracker.current?.imgs[3]}
-            card5={imgTracker.current?.imgs[4]}
-            showAnimation={showAnim2}
-            animationDelay={4900}
-            callback={() => {
-              setShowAnim2(false);
-              setShowAnim3(true);
-            }}
-          />
-        )}
-        {showAnime3 && (
-          <FlipCard
-            frontCard={imgTracker.current?.imgs[0]}
-            backCard={cardBack}
-            showAnimation={showAnime3}
-            animationDelay={1800}
-            callback={() => {
-              setShowAnim3(false);
-              adjustImages();
-              setShowAnim1(true);
-            }}
-          />
-        )}
+        <FlipCard
+          frontCard={cardBack}
+          backCard={imgTracker.current?.imgs[0]}
+          showAnimation={display.animation1}
+          callback={() => {
+            showAnimation({ animation2: true });
+          }}
+        />
+        <RevelCardsAnimation
+          cards={imgTracker.current?.imgs}
+          showAnimation={display.animation2}
+          callback={() => {
+            showAnimation({ animation3: true });
+          }}
+        />
+        <FlipCard
+          frontCard={imgTracker.current?.imgs[0]}
+          backCard={cardBack}
+          showAnimation={display.animation3}
+          callback={() => {
+            showAnimation({ animation1: true });
+          }}
+        />
       </div>
     </div>
   );

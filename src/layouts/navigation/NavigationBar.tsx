@@ -16,10 +16,6 @@ const NavigationBar = () => {
   const { home, archetype, cards } = useSelector(getLocaleNavigationTexts);
   const [showNav, setShowNav] = useState(false);
 
-  useEffect(() => {
-    setShowNav(false);
-  }, [pageWidth, pageHeight]);
-
   const navigationList = [
     {
       label: home,
@@ -38,35 +34,18 @@ const NavigationBar = () => {
     },
   ];
 
+  useEffect(() => {
+    setShowNav(false);
+  }, [pageWidth, pageHeight]);
+
   return (
     <>
       <nav
-        className="
-          w-full
-          h-10
-          fixed
-          z-50
-          top-0
-          paddin
-          p-2
-          grid
-          grid-cols-2
-          sm:h-14"
-        style={{
-          backgroundColor: 'rgba(0,0,0,1)',
-        }}
+        className="w-full h-10 fixed z-50 top-0 paddin p-2 grid grid-cols-2 sm:h-14"
+        style={{ backgroundColor: 'rgba(0,0,0,1)' }}
       >
         <img
-          className="
-            col-start-1
-            col-end-1
-            cursor-pointer
-            w-[100px]
-            h-[25px]
-            lg:w-[140px]
-            lg:h-[40px]
-            sm:my-auto
-            sm:ml-1.5"
+          className="col-start-1 col-end-1 cursor-pointer w-[100px] h-[25px] lg:w-[140px] lg:h-[40px] sm:my-auto sm:ml-1.5"
           src={yugioh_logo}
         />
         <div className="relative col-start-2 col-end-2">
