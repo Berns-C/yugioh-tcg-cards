@@ -1,24 +1,25 @@
 export const getCardImages = (imgList, startIndex) => {
-  const imgListSize = imgList.length; //Original length of image list.
-  const loopMaxSize = imgListSize * 2;
-  const maxArr = 4;
-  let newImgArr = [];
+  const ARRAY_SIZE = imgList.length - 1;
+  const MAX_LOOP_SIZE = ARRAY_SIZE * 2;
+  const MAX_IMAGES_SIZE = 4;
+  const newImgArr = [];
 
-  for (let ctr = 0; ctr <= loopMaxSize; ctr++) {
-    if (ctr >= startIndex && newImgArr.length <= maxArr) {
-      let imageIndex = ctr;
-      if (imageIndex >= imgListSize - 1) {
-        imageIndex = imageIndex - (imgListSize - 1);
-      }
+  const shouldAddImg = (index) =>
+    index >= startIndex && newImgArr.length <= MAX_IMAGES_SIZE;
+  const adjustIndex = (index) =>
+    index > ARRAY_SIZE ? index - (ARRAY_SIZE + 1) : index;
 
-      newImgArr.push(imgList[imageIndex]);
-    } else if (newImgArr.length === maxArr) {
+  for (let ctr = 0; ctr <= MAX_LOOP_SIZE; ctr++) {
+    if (shouldAddImg(ctr)) {
+      const index = adjustIndex(ctr);
+      newImgArr.push(imgList[index]);
+    } else if (newImgArr.length === MAX_IMAGES_SIZE) {
       break;
     }
   }
 
   return {
-    startIndex: startIndex > imgListSize - 1 ? 0 : startIndex + 1,
+    nextIndex: startIndex === ARRAY_SIZE ? 0 : startIndex + 1,
     imgs: newImgArr,
   };
 };

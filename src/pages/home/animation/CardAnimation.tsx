@@ -2,20 +2,26 @@ import React, { useState, useRef } from 'react';
 import ShowCardAnimation from './ShowCardAnimation';
 import FlipCard from './FlipCard';
 import cardBack from '@Assets/images/card_back.jpg';
-import useHideAnimComponent from '@Hooks/use-hideAnimComp';
-import { SM_BREAKPOINT } from '@Data/constants';
 import { ANIMATION_IMAGES_ARRAY } from '@Data/animation_images';
 import { getCardImages } from '@Helper/card-animation-img';
 
 interface iImageTracker {
-  startIndex: number;
+  nextIndex: number;
   imgs: string[];
 }
 
-const CardAnimation = ({ btnText, pageWidth }) => {
-  const imgTracker = useRef<iImageTracker>(
-    getCardImages(ANIMATION_IMAGES_ARRAY, 0)
-  );
+const CardAnimation = () => {
+  const imgTracker = useRef<iImageTracker>({
+    nextIndex: 1,
+    imgs: [
+      ANIMATION_IMAGES_ARRAY[0],
+      ANIMATION_IMAGES_ARRAY[1],
+      ANIMATION_IMAGES_ARRAY[2],
+      ANIMATION_IMAGES_ARRAY[3],
+      ANIMATION_IMAGES_ARRAY[4],
+    ],
+  });
+
   const [showAnim1, setShowAnim1] = useState(true);
   const [showAnim2, setShowAnim2] = useState(false);
   const [showAnime3, setShowAnim3] = useState(false);
@@ -23,23 +29,9 @@ const CardAnimation = ({ btnText, pageWidth }) => {
   const adjustImages = () => {
     imgTracker.current = getCardImages(
       ANIMATION_IMAGES_ARRAY,
-      imgTracker.current?.startIndex
+      imgTracker.current?.nextIndex
     );
   };
-
-  const {} = useHideAnimComponent(showAnim1, 1800, () => {
-    setShowAnim1(false);
-    setShowAnim2(true);
-  });
-  const {} = useHideAnimComponent(showAnim2, 4900, () => {
-    setShowAnim2(false);
-    setShowAnim3(true);
-  });
-  const {} = useHideAnimComponent(showAnime3, 1800, () => {
-    setShowAnim3(false);
-    adjustImages();
-    setShowAnim1(true);
-  });
 
   return (
     <div className="card-background relative w-full ">
@@ -48,6 +40,12 @@ const CardAnimation = ({ btnText, pageWidth }) => {
           <FlipCard
             frontCard={cardBack}
             backCard={imgTracker.current?.imgs[0]}
+            showAnimation={showAnim1}
+            animationDelay={1800}
+            callback={() => {
+              setShowAnim1(false);
+              setShowAnim2(true);
+            }}
           />
         )}
         {showAnim2 && (
@@ -57,12 +55,25 @@ const CardAnimation = ({ btnText, pageWidth }) => {
             card3={imgTracker.current?.imgs[2]}
             card4={imgTracker.current?.imgs[3]}
             card5={imgTracker.current?.imgs[4]}
+            showAnimation={showAnim2}
+            animationDelay={4900}
+            callback={() => {
+              setShowAnim2(false);
+              setShowAnim3(true);
+            }}
           />
         )}
         {showAnime3 && (
           <FlipCard
             frontCard={imgTracker.current?.imgs[0]}
             backCard={cardBack}
+            showAnimation={showAnime3}
+            animationDelay={1800}
+            callback={() => {
+              setShowAnim3(false);
+              adjustImages();
+              setShowAnim1(true);
+            }}
           />
         )}
       </div>

@@ -85,10 +85,7 @@ const Home = () => {
             absolute
             bottom-12"
           >
-            <CardAnimation
-              btnText={introduction?.btnText}
-              pageWidth={pageWidth}
-            />
+            <CardAnimation />
           </div>
         </div>
       </section>

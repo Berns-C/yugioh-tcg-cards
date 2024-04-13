@@ -1,7 +1,19 @@
 import React from 'react';
 import '@Assets/styles/showcards.css';
+import useHideAnimComponent from '@Hooks/use-hideAnimComp';
 
-const ShowCardAnimation = ({ card1, card2, card3, card4, card5 }) => {
+const ShowCardAnimation = ({
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  showAnimation,
+  animationDelay,
+  callback,
+}) => {
+  useHideAnimComponent(showAnimation, animationDelay, callback);
+
   return (
     <>
       <div className="swatch">
