@@ -12,7 +12,7 @@ const CardAnimation = () => {
     imgs: ANIMATION_IMAGES_ARRAY,
   });
 
-  const [display, setDisplay] = useState({
+  const [displayAnimation, setDisplayAnimation] = useState({
     animation1: true,
     animation2: false,
     animation3: false,
@@ -30,34 +30,24 @@ const CardAnimation = () => {
     animation2 = false,
     animation3 = false,
   }) => {
-    setDisplay({ animation1, animation2, animation3 });
+    setDisplayAnimation({ animation1, animation2, animation3 });
   };
 
   return (
     <div className="card-background relative w-full ">
       <div className="w-[145px] h-[210px] sm:w-[160px] sm:h-[236px] my-8 mx-auto">
         <FlipCard
-          frontCard={cardBack}
-          backCard={imgTracker.current?.imgs[0]}
-          startAnimation={display.animation1}
-          callback={() => {
-            showAnimation({ animation2: true });
-          }}
+          frontCard={imgTracker.current?.imgs[0]}
+          backCard={cardBack}
+          startAnimations={displayAnimation}
+          updateCard={adjustImages}
+          callback={(state) => showAnimation(state)}
         />
         <RevelCardsAnimation
           cards={imgTracker.current?.imgs}
-          startAnimation={display.animation2}
+          startAnimation={displayAnimation.animation2}
           callback={() => {
             showAnimation({ animation3: true });
-          }}
-        />
-        <FlipCard
-          frontCard={imgTracker.current?.imgs[0]}
-          backCard={cardBack}
-          startAnimation={display.animation3}
-          callback={() => {
-            adjustImages();
-            showAnimation({ animation1: true });
           }}
         />
       </div>

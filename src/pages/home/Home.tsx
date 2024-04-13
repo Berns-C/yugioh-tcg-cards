@@ -23,7 +23,7 @@ const Home = () => {
   const archetypes = useSelector(getArchetypeState);
 
   useSelector((state) => {
-    console.log('Home state ', state);
+    //console.log('Home state ', state);
   });
 
   useEffect(() => {

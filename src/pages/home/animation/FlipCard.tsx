@@ -1,20 +1,39 @@
 import React from 'react';
 import '@Assets/styles/flip.css';
 import useHideAnimComponent from '@Hooks/use-hideAnimComp';
+import CardFlip from '@Components/image/CardFlip';
 
-const FlipCard = ({ frontCard, backCard, startAnimation, callback }) => {
-  useHideAnimComponent({ startAnimation, timeOutDelay: 1800, callback });
+const FlipCard = ({
+  frontCard,
+  backCard,
+  startAnimations,
+  updateCard,
+  callback,
+}) => {
+  const { animation1, animation3 } = startAnimations;
+
+  useHideAnimComponent({
+    startAnimation: animation1,
+    timeOutDelay: 1800,
+    callback: () => {
+      callback({ animation2: true });
+    },
+  });
+
+  useHideAnimComponent({
+    startAnimation: animation3,
+    timeOutDelay: 1800,
+    callback: () => {
+      updateCard();
+      callback({ animation1: true });
+    },
+  });
 
   return (
-    startAnimation && (
-      <div id="card-flip">
-        <figure style={{ backgroundImage: `url(${frontCard})` }}></figure>
-        <figure
-          className="back"
-          style={{ backgroundImage: `url(${backCard})` }}
-        ></figure>
-      </div>
-    )
+    <>
+      {animation1 && <CardFlip cardFront={backCard} cardBack={frontCard} />}
+      {animation3 && <CardFlip cardFront={frontCard} cardBack={backCard} />}
+    </>
   );
 };
 
