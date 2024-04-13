@@ -1,11 +1,8 @@
 import React from 'react';
 import DeviceProvider from './app_contexts/Device';
+import { ContextProps } from '@Interfaces/index';
 
-export interface IContextProps {
-  children: React.ReactNode;
-}
-
-const ContextWrapper = ({ children }: IContextProps) => {
+const ContextWrapper = ({ children }: ContextProps) => {
   return <DeviceProvider>{children}</DeviceProvider>;
 };
 

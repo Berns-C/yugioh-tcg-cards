@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { DeviceContext, IDeviceContext } from '@Contexts/app_contexts/Device';
+import { DeviceContext } from '@Contexts/app_contexts/Device';
 import CardAnimation from './animation/CardAnimation';
 import { getLocaleHomeTexts } from '@Redux/reducers/locale-slice';
 import { LG_BREAKPOINT } from '@Data/constants';
@@ -12,11 +12,11 @@ import {
   getFetchStatus,
   getArchetypeState,
 } from '@Redux/reducers/archetypes-slice';
-import { AppDispatch } from '@Redux/redux-store';
+import { DeviceContextProps, AppDispatch } from '@Interfaces/index';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { pageWidth } = useContext<IDeviceContext>(DeviceContext);
+  const { pageWidth } = useContext<DeviceContextProps>(DeviceContext);
   const { text_1, text_2, introduction, about, link } =
     useSelector(getLocaleHomeTexts);
   const archetypeStatus = useSelector(getFetchStatus);

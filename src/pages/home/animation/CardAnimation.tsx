@@ -30,9 +30,6 @@ const CardAnimation = () => {
     animation2 = false,
     animation3 = false,
   }) => {
-    if (animation1) {
-      adjustImages();
-    }
     setDisplay({ animation1, animation2, animation3 });
   };
 
@@ -42,14 +39,14 @@ const CardAnimation = () => {
         <FlipCard
           frontCard={cardBack}
           backCard={imgTracker.current?.imgs[0]}
-          showAnimation={display.animation1}
+          startAnimation={display.animation1}
           callback={() => {
             showAnimation({ animation2: true });
           }}
         />
         <RevelCardsAnimation
           cards={imgTracker.current?.imgs}
-          showAnimation={display.animation2}
+          startAnimation={display.animation2}
           callback={() => {
             showAnimation({ animation3: true });
           }}
@@ -57,8 +54,9 @@ const CardAnimation = () => {
         <FlipCard
           frontCard={imgTracker.current?.imgs[0]}
           backCard={cardBack}
-          showAnimation={display.animation3}
+          startAnimation={display.animation3}
           callback={() => {
+            adjustImages();
             showAnimation({ animation1: true });
           }}
         />

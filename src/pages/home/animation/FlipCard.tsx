@@ -2,11 +2,11 @@ import React from 'react';
 import '@Assets/styles/flip.css';
 import useHideAnimComponent from '@Hooks/use-hideAnimComp';
 
-const FlipCard = ({ frontCard, backCard, showAnimation, callback }) => {
-  useHideAnimComponent(showAnimation, 1800, callback);
+const FlipCard = ({ frontCard, backCard, startAnimation, callback }) => {
+  useHideAnimComponent({ startAnimation, timeOutDelay: 1800, callback });
 
   return (
-    showAnimation && (
+    startAnimation && (
       <div id="card-flip">
         <figure style={{ backgroundImage: `url(${frontCard})` }}></figure>
         <figure

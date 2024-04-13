@@ -2,11 +2,11 @@ import React from 'react';
 import '@Assets/styles/showcards.css';
 import useHideAnimComponent from '@Hooks/use-hideAnimComp';
 
-const RevelCardsAnimation = ({ cards, showAnimation, callback }) => {
-  useHideAnimComponent(showAnimation, 4900, callback);
+const RevelCardsAnimation = ({ cards, startAnimation, callback }) => {
+  useHideAnimComponent({ startAnimation, timeOutDelay: 4900, callback });
 
   return (
-    showAnimation && (
+    startAnimation && (
       <div className="swatch">
         <div style={{ backgroundImage: `url(${cards[4]})` }}></div>
         <div style={{ backgroundImage: `url(${cards[3]})` }}></div>

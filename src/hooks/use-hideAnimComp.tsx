@@ -1,23 +1,26 @@
 import { useEffect } from 'react';
+import { UseHideAnimation } from '@Interfaces/index';
 
-const useHideAnimationComponent = (
-  watchState = false,
+const useHideAnimation = ({
+  startAnimation,
   timeOutDelay,
-  callback = () => {}
-) => {
+  callback,
+}: UseHideAnimation) => {
   useEffect(() => {
-    if (watchState) {
-      const clearSetTimeout = setTimeout(() => {
-        callback();
-      }, timeOutDelay);
-
-      return () => {
-        clearTimeout(clearSetTimeout);
-      };
+    if (!startAnimation) {
+      return;
     }
-  }, [watchState]);
+
+    const clearSetTimeout = setTimeout(() => {
+      callback();
+    }, timeOutDelay);
+
+    return () => {
+      clearTimeout(clearSetTimeout);
+    };
+  }, [startAnimation]);
 
   return {};
 };
 
-export default useHideAnimationComponent;
+export default useHideAnimation;
